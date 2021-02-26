@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Oswald&family=Roboto:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes preloader-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
 * {
   margin: 0;
   padding: 0;
@@ -60,6 +71,41 @@ hr {
   .ff i {
     font-size: 4rem; }
 
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 1001; }
+  .preloader-row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 7rem;
+    height: 7rem;
+    margin: -3.5em 0 0 -3.5em;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear; }
+  .preloader-item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: #337ab7;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out; }
+    .preloader-item:last-child {
+      top: auto;
+      bottom: 0;
+      animation-delay: -1s; }
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0; }
+
 .parallax {
   height: 100%;
   width: 100%;
@@ -102,7 +148,8 @@ header {
       .header-color .container .info p {
         font-family: "Oswald", sans-serif;
         color: rgba(225, 225, 225, 0.8);
-        font-size: 2.3em; }
+        font-size: 2.3em;
+        padding-bottom: 2em; }
       .header-color .container .info hr {
         width: 70%; }
       .header-color .container .info .btn {
@@ -306,7 +353,7 @@ nav {
   width: 21%;
   text-align: center; }
   .skills-cycle .prosent {
-    font-size: 0.55rem;
+    font-size: 0.52rem;
     fill: #32596B;
     text-anchor: middle;
     dominant-baseline: central; }
@@ -362,6 +409,12 @@ nav {
     width: 10em;
     text-align: center;
     font-size: 1.3em; }
+
+.works hr {
+  border-bottom: 2px solid #38ABE0; }
+
+.works-cases {
+  text-align: center; }
 
 .contact {
   color: white;

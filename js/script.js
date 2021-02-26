@@ -1,4 +1,14 @@
 $(document).ready(function(){
+
+  $(window).on('load', function () {
+  $('body').addClass('loaded_hiding');
+  window.setTimeout(function () {
+    $('.preloader').css('display', 'none');
+    $('body').removeClass('loaded_hiding');
+  }, 500);
+});
+
+
   $(window).scroll(function(){
     var s = $(this).scrollTop();
     var w = $(this).outerWidth();
@@ -17,11 +27,15 @@ $(document).ready(function(){
       $('.parallax').css('display', 'block');
     }
   });
+
+
   $("#menu").on('click', function(){
     $(this).toggleClass('btn-menu-active');
     $('.nav-menu').slideToggle();
     // $('.nav-menu').toggleClass('nav-menu-active');
   });
+
+
   $(".nav-menu, header").on("click","a", function (event) {
     event.preventDefault();
     var id  = $(this).attr('href'),
